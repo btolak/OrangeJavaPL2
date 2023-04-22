@@ -1,11 +1,22 @@
 package pl.sda.OrangeJavaPL2.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import pl.sda.OrangeJavaPL2.entity.Bread;
 
-@Repository
-public interface BreadRepository extends JpaRepository<Bread,Long> {
-    public Bread removeBreadById(long id);
+import java.util.List;
 
+@Repository
+@RequiredArgsConstructor
+public class BreadRepository {
+
+    private final IBreadRepository breadRepository;
+
+    public List<Bread> getAllBreads(){
+        return breadRepository.findAll();
+    }
+
+    public void addBread(Bread bread){
+        breadRepository.save(bread);
+    }
 }
