@@ -2,10 +2,7 @@ package pl.sda.OrangeJavaPL2.entity;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
@@ -13,6 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "breads")
+@ToString
 public class Bread {
 
     @Id
@@ -21,6 +19,10 @@ public class Bread {
     private String name;
     @Column(name = "price_in_pln")
     private double price;
+    public Bread(String name, Double price) {
+        this.name = name;
+        this.price = price;
+    }
 
 
 }
