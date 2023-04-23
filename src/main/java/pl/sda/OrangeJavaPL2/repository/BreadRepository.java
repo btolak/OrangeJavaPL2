@@ -19,4 +19,8 @@ public class BreadRepository {
     public void addBread(Bread bread){
         breadRepository.save(bread);
     }
+
+    public Bread getBreadByName(String name){
+        return breadRepository.findByName(name);
+    }
 }
