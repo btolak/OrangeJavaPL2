@@ -4,6 +4,8 @@ package pl.sda.OrangeJavaPL2.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
+
 @Entity //Database entity-object to map
 @Getter //required for entity
 @Setter //required for entity
@@ -17,12 +19,14 @@ public class Bread {
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //Autoincrement id with every single object
     private long id;
     private String name;
+    @Enumerated(EnumType.STRING)
+    BreadType breadType;
     @Column(name = "price_in_pln")
-    private double price;
-    public Bread(String name, Double price) {
+    BigDecimal price;
+
+    public Bread(String name, BreadType breadType,BigDecimal price) {
         this.name = name;
+        this.breadType = breadType;
         this.price = price;
     }
-
-
 }
