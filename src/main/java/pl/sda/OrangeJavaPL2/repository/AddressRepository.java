@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 @Repository
 public class AddressRepository {
 
+    //dependency injection
     private final IAddressRepository addressRepository;
 
     public void addAddress(Address address){
