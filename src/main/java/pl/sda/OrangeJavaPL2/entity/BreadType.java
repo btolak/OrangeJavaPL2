@@ -4,8 +4,9 @@ import lombok.Getter;
 
 @Getter
 public enum BreadType {
-    PSZENNE,
-    ŻYTNIE,
-    SŁODKIE,
-    WIELOZIARNISTE, WYTRAWNE
+    WHEAT,
+    RYE,
+    SWEET,
+    DRY,
+    MULTIGRAIN
 }
