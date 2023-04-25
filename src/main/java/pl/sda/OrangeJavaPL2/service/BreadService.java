@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import pl.sda.OrangeJavaPL2.entity.Bread;
 import pl.sda.OrangeJavaPL2.repository.BreadRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -30,5 +31,12 @@ public class BreadService {
                     .status(201)
                     .build();
         }
+    }
+
+    public void deleteBreadById(Long id) {breadRepository.deleteBreadById(id);
+    }
+
+    public void updateBread(Long id, String name, BigDecimal price) {
+        breadRepository.updateBread(id,name,price);
     }
 }

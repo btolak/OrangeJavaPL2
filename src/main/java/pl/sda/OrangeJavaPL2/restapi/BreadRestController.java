@@ -31,4 +31,13 @@ public class BreadRestController {
     ResponseEntity addBread(@RequestBody Bread bread) {
         return breadService.addBread(bread);
     }
+
+    @DeleteMapping(path="{id}") // /api/breads/id
+    public void deleteBreadById(@PathVariable Long id){
+        breadService.deleteBreadById(id);
+    }
+    @PutMapping(path="/{id}")
+    public void updateBread(@PathVariable Long id, @RequestBody Bread bread){
+        breadService.updateBread(id,bread.getName(),bread.getPrice());
+    }
 }
