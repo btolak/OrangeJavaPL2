@@ -15,8 +15,8 @@ public class BreadInitializer {
     private final BreadRepository breadRepository;
     @PostConstruct
     public void initBread(){
-        Bread bread =  new Bread("Bagietka", BreadType.PSZENNE,BigDecimal.valueOf(3.50));
-        Bread bread1 =  new Bread("Grahamka",BreadType.WIELOZIARNISTE, BigDecimal.valueOf(1.00));
+        Bread bread =  new Bread("Bagietka", BreadType.WHEAT,BigDecimal.valueOf(3.50));
+        Bread bread1 =  new Bread("Grahamka",BreadType.MULTIGRAIN, BigDecimal.valueOf(1.00));
     breadRepository.addBread(bread);
     breadRepository.addBread(bread1);
     }
