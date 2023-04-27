@@ -2,12 +2,11 @@ package pl.sda.OrangeJavaPL2.restapi;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.OrangeJavaPL2.entity.Bread;
-import pl.sda.OrangeJavaPL2.repository.BreadRepository;
-import pl.sda.OrangeJavaPL2.repository.IBreadRepository;
+
 import pl.sda.OrangeJavaPL2.service.BreadService;
 
 import java.util.List;
