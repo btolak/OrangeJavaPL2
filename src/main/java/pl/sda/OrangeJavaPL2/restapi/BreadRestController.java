@@ -1,6 +1,8 @@
 package pl.sda.OrangeJavaPL2.restapi;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.OrangeJavaPL2.entity.Bread;
@@ -33,11 +35,17 @@ public class BreadRestController {
     }
 
     @DeleteMapping(path="{id}") // /api/breads/id
-    public void deleteBreadById(@PathVariable Long id){
+    public ResponseEntity deleteBreadById(@PathVariable Long id){
         breadService.deleteBreadById(id);
+                return ResponseEntity
+                        .status(HttpStatus.NO_CONTENT)
+                        .build();
     }
     @PutMapping(path="/{id}")
-    public void updateBread(@PathVariable Long id, @RequestBody Bread bread){
+    public ResponseEntity updateBread(@PathVariable Long id, @RequestBody Bread bread){
         breadService.updateBread(id,bread.getName(),bread.getPrice());
+        return ResponseEntity
+                .status(HttpStatus.ACCEPTED)
+                .build();
     }
 }
