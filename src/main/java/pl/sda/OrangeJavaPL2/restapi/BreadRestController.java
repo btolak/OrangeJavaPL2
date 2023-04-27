@@ -1,6 +1,7 @@
 package pl.sda.OrangeJavaPL2.restapi;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
@@ -14,12 +15,14 @@ import java.util.List;
 @RestController
 @RequestMapping(path = "/api/breads")
 @RequiredArgsConstructor
+@Slf4j
 public class BreadRestController {
     //localhost:<port>/api/breads
     private final BreadService breadService;
 
     @GetMapping()
     public List<Bread> getAllBreads() {
+        log.info("showing all breads");
         return breadService.getAllBreads();
     }
 
@@ -30,11 +33,12 @@ public class BreadRestController {
 //    }
     @PostMapping()
     ResponseEntity addBread(@RequestBody Bread bread) {
-        return breadService.addBread(bread);
+        log.info("added new bread ");return breadService.addBread(bread);
     }
 
     @DeleteMapping(path="{id}") // /api/breads/id
     public ResponseEntity deleteBreadById(@PathVariable Long id){
+        log.info("Deleting bread with id: "+id);
         breadService.deleteBreadById(id);
                 return ResponseEntity
                         .status(HttpStatus.NO_CONTENT)
@@ -42,6 +46,7 @@ public class BreadRestController {
     }
     @PutMapping(path="/{id}")
     public ResponseEntity updateBread(@PathVariable Long id, @RequestBody Bread bread){
+        log.info("Updating bread with id :"+id);
         breadService.updateBread(id,bread.getName(),bread.getPrice());
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED)
