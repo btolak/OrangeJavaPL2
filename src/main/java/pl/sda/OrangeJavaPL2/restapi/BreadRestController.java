@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.sda.OrangeJavaPL2.entity.Bread;
 
+import pl.sda.OrangeJavaPL2.exceptions.BreadNotFoundException;
 import pl.sda.OrangeJavaPL2.service.BreadService;
 
 import java.util.List;
@@ -52,4 +53,12 @@ public class BreadRestController {
                 .status(HttpStatus.ACCEPTED)
                 .build();
     }
-}
+    @GetMapping("/{id}")
+    public Bread getBreadById(@PathVariable Long id){
+        log.info("Get a bread with id : {id}");
+        if(breadService.getBreadById(id).equals(null)){
+            throw new BreadNotFoundException("Bread not found");
+        }else{
+        return breadService.getBreadById(id);
+    }
+}}

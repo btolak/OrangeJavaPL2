@@ -39,4 +39,8 @@ public class BreadService {
     public void updateBread(Long id, String name, BigDecimal price) {
         breadRepository.updateBread(id,name,price);
     }
+
+    public Bread getBreadById(Long id) {
+        return breadRepository.getBreadById(id).get();
+    }
 }
