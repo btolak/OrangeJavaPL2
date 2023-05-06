@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Repository
-public class AddressRepository {
+public class AddressRepository { //DAO - Data Access Object
 
     //dependency injection
     private final IAddressRepository addressRepository;

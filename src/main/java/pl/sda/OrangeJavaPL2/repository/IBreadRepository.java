@@ -17,8 +17,10 @@ public interface IBreadRepository extends JpaRepository<Bread, Long> {
 
     @Query(value = "UPDATE Bread SET name = :name, price =:price WHERE id =:id")
     @Modifying
-    @Transactional
-    void updateBread(@Param("id") Long id, @Param("name") String name, @Param("price") BigDecimal price);
+    @Transactional // all or nothing
+    void updateBread(@Param("id") Long id,
+                     @Param("name") String name,
+                     @Param("price") BigDecimal price);
     // Select * from users where name = [AND 1=1, DROP users];  -> SQL injection
 
     //
