@@ -14,4 +14,10 @@ public class BakeryGlobalExceptionHandler {
     String breadNotFoundExceptionHandler(BreadNotFoundException exception) {
         return exception.getMessage();
     }
+    //    @ResponseBody
+//    @ExceptionHandler(TooExpensiveBreadException.class)
+//    @ResponseStatus(HttpStatus.NOT_ACCEPTABLE)
+//    String tooExpensiveBreadExceptionHandler(TooExpensiveBreadException exception) {
+//        return exception.getMessage();
+//    }
 }

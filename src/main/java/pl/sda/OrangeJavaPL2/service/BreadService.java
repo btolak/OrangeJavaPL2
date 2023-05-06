@@ -8,6 +8,7 @@ import pl.sda.OrangeJavaPL2.repository.BreadRepository;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -40,7 +41,7 @@ public class BreadService {
         breadRepository.updateBread(id,name,price);
     }
 
-    public Bread getBreadById(Long id) {
-        return breadRepository.getBreadById(id).get();
+    public Optional<Bread> getBreadById(Long id) {
+        return breadRepository.getBreadById(id);
     }
 }

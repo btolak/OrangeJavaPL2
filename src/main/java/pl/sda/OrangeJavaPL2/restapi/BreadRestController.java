@@ -53,12 +53,14 @@ public class BreadRestController {
                 .status(HttpStatus.ACCEPTED)
                 .build();
     }
-    @GetMapping("/{id}")
-    public Bread getBreadById(@PathVariable Long id){
-        log.info("Get a bread with id : {id}");
-        if(breadService.getBreadById(id).equals(null)){
-            throw new BreadNotFoundException("Bread not found");
-        }else{
-        return breadService.getBreadById(id);
+    @GetMapping("/{id}") //localhost:<port>/api/breads/30 -> get bread with id of 30
+    public ResponseEntity getBreadById(@PathVariable Long id) {
+        log.info("Get a bread with id: {}", id);
+        return ResponseEntity
+                .status(200)
+                .body(breadService.getBreadById(id)
+                        .orElseThrow(()-> new BreadNotFoundException("Bread with specified id does not exist")));
+        //repo - Optional<Bread>, Service - Optional<Bread>, Controller - Bread or Exception - Exception Handler
+        //repo - Optional<Bread>, Service - Optional<Bread>, Controller - Try/Catch(BreadNotFoundException) -> return ResponseEntity
     }
-}}
+}
