@@ -17,10 +17,12 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     String name;
+    @Transient //to not include this field in DB schema
     String number;
     String postalCode;
     String country;
 
+    // all fields except id
     public Address(String name, String number, String postalCode, String country) {
         this.name = name;
         this.number = number;

@@ -21,7 +21,7 @@ public class Bread {
     private String name;
     @Enumerated(EnumType.STRING)
     BreadType breadType;
-    @Column(name = "price_in_pln")
+    @Column(name = "price_in_pln") // change default name to custom one
     BigDecimal price;
 
     public Bread(String name, BreadType breadType,BigDecimal price) {
