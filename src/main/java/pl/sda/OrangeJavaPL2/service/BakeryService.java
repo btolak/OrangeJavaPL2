@@ -1,6 +1,6 @@
 package pl.sda.OrangeJavaPL2.service;
 
-import lombok.NoArgsConstructor;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import pl.sda.OrangeJavaPL2.entity.Bakery;
