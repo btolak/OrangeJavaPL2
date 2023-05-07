@@ -1,5 +1,6 @@
 package pl.sda.OrangeJavaPL2.apiconsuming;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,10 @@ public class MySecondConsumerService {
                 .build();
 
         HttpResponse httpResponse = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-        log.info(httpResponse.body().toString());
+        ObjectMapper objectMapper=new ObjectMapper();
+        MySecondConsumerResponse response = objectMapper
+                .readValue(httpResponse.body().toString(),MySecondConsumerResponse.class);
+        log.info(response.getSetup()+"\n"+response.getPunchline());
 
     }
 }
