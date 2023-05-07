@@ -13,11 +13,10 @@ import java.util.List;
 @RequiredArgsConstructor
 
 public class BakeryService {
-    private static BakeryRepository bakeryRepository;
+    private final BakeryRepository bakeryRepository;
 
-    public static void saveBakery(Bakery bakery) {
-         bakeryRepository.saveBakery(bakery);
-
+    public void saveBakery(Bakery bakery) {
+        bakeryRepository.saveBakery(bakery);
     }
 
     public List<Bakery> getAllBakeries() {

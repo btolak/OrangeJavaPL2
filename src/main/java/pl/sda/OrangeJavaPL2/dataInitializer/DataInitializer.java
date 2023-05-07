@@ -70,8 +70,8 @@ public class DataInitializer {
                 address1,
                 new Owner("Jacki","Chan",53));
 
-        BakeryService.saveBakery(bakery);
-        //BakeryService.saveBakery(bakery1);
+        bakeryService.saveBakery(bakery);
+        //bakeryService.saveBakery(bakery1);
 
     }
 }

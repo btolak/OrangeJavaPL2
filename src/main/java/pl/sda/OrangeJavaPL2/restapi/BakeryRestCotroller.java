@@ -28,6 +28,7 @@ public class BakeryRestCotroller {
     //localhost:8080/api/bakeries/{id}
     @GetMapping(path="/{id}")
     public Bakery getBakeryById(@PathVariable Long id){
+        log.info("show bakeries with id : "+id);
         return bakeryService.getBakeryById(id);
     }
 }

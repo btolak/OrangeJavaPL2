@@ -24,7 +24,7 @@ public class Bakery {
     @OneToOne (cascade = CascadeType.ALL)
     Address address;
 
-    @Embedded
+    @OneToOne(cascade = CascadeType.ALL)
     Owner owner;
 
     public Bakery(List<Bread> breadList, Address address, Owner owner) {

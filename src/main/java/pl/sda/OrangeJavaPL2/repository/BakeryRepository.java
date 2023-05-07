@@ -3,7 +3,7 @@ package pl.sda.OrangeJavaPL2.repository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import pl.sda.OrangeJavaPL2.entity.Bakery;
-import pl.sda.OrangeJavaPL2.service.BakeryService;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -17,12 +17,14 @@ public class BakeryRepository{
         return bakeryRepository.findAll();
     }
 
-    public void saveBakery(Bakery bakery) {
-        bakeryRepository.save(bakery);
-    }
+
 
     public Optional<Object> getBakeryById(Long id) {
         return bakeryRepository.getBakeryById(id);
+    }
+
+    public void saveBakery(Bakery bakery) {
+        bakeryRepository.save(bakery);
     }
 
 //    public Bakery getBakeryById(Long id) {
