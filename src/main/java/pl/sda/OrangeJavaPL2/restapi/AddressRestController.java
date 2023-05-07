@@ -2,8 +2,6 @@ package pl.sda.OrangeJavaPL2.restapi;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pl.sda.OrangeJavaPL2.entity.Address;
 import pl.sda.OrangeJavaPL2.exceptions.AddressNotFoundException;
-import pl.sda.OrangeJavaPL2.exceptions.BreadNotFoundException;
 import pl.sda.OrangeJavaPL2.repository.AddressRepository;
 
-import java.util.Optional;
 import java.util.Set;
 
 @RestController
